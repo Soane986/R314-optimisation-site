@@ -5,7 +5,12 @@
 .hero-inner{position:relative;z-index:1}
 :root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--primary:#7C5CFF;--accent:#06D6A0;--card:#15193A;--shadow:rgba(0,0,0,0.45)}
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif}
+/* Police de secours aux dimensions de Poppins : Arial (ou ses clones métriques
+   Liberation Sans / Arimo) agrandie et recalée pour occuper la même place, afin
+   que l'arrivée de Poppins (display=swap) ne décale pas la mise en page (CLS). */
+@font-face{font-family:'Poppins Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('Arimo');font-weight:400;size-adjust:109.8%;ascent-override:95.63%;descent-override:31.88%;line-gap-override:9.11%}
+@font-face{font-family:'Poppins Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Liberation Sans Bold'),local('Arimo Bold');font-weight:600 700;size-adjust:106.4%;ascent-override:98.68%;descent-override:32.89%;line-gap-override:9.40%}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:'Poppins','Poppins Fallback',system-ui,Segoe UI,Roboto,Arial,sans-serif}
 .container{width:min(1200px,92%);margin:0 auto}
 a{color:var(--fg);text-decoration:none;opacity:.9}a:hover{opacity:1}
 .topbar{position:sticky;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(13,16,35,.8),rgba(13,16,35,.2));z-index:10;box-shadow:0 10px 30px var(--shadow)}
