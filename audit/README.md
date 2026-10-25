@@ -1,15 +1,13 @@
 # Captures d'audit
 
-Captures référencées dans `../rapport.md`. Indiquer le profil (mobile / desktop) dans le nom de chaque fichier.
+Toutes ces captures sont rassemblées et commentées dans **`audit-avant-apres.docx`** (7 pages).
+Mesures du 25 octobre 2026 ; site publié : <https://soane986.github.io/R314-optimisation-site/index.html#defis>
 
 | Fichier | Contenu |
 |---|---|
-| `avant-reseau.png` / `apres-reseau.png` | Onglet Réseau trié par taille, cache désactivé, avec la barre de total |
-| `avant-lighthouse-mobile.png` / `apres-lighthouse-mobile.png` | Lighthouse (DevTools), profil Mobile |
-| `avant-lighthouse-desktop.png` / `apres-lighthouse-desktop.png` | Lighthouse (DevTools), profil Desktop |
-| `avant-performance-frise.png` / `apres-performance-frise.png` | Panneau Performances, CPU ×4, 20 s et plus, fenêtre > 1024 px |
-| `avant-performance-bottomup.png` / `apres-performance-bottomup.png` | Onglet Bottom-Up trié par temps |
-| `avant-psi-mobile.png` / `apres-psi-mobile.png` | PageSpeed Insights, onglet Mobile (score et 5 métriques) |
-| `avant-psi-desktop.png` / `apres-psi-desktop.png` | PageSpeed Insights, onglet Ordinateur |
-| `iso-avant-desktop.png` / `iso-apres-desktop.png` | Comparaison visuelle (iso-rendu), desktop |
-| `iso-avant-mobile.png` / `iso-apres-mobile.png` | Comparaison visuelle (iso-rendu), mobile |
+| `psi-avant-mobile.png` / `psi-apres-mobile.png` | PageSpeed Insights, profil Mobile : score 61 → 89 (analyse médiane sur 3) |
+| `psi-avant-desktop.png` / `psi-apres-desktop.png` | PageSpeed Insights, profil Ordinateur : score 52 → 100 (analyse médiane sur 3) |
+| `site-avant-desktop.png` / `site-apres-desktop.png` | Iso-rendu de l'accueil, fenêtre 1280 × 800 px |
+| `site-avant-mobile.png` / `site-apres-mobile.png` | Iso-rendu de l'accueil, largeur 412 px |
+| `detail-avant-mobile.png` / `detail-apres-mobile.png` | Page de détail en 412 px : la photo débordait de l'écran, elle est maintenant contenue |
+| `fiche-01.png` à `fiche-10.png` | Pour chaque optimisation : code d'origine, code corrigé et gain mesuré |

@@ -1,11 +1,11 @@
 # Rapport d'optimisation — TP R3.14
 
 **Étudiant :** Soane ILOAI — BUT MMI Béziers
-**Site déployé :** <https://soane986.github.io/R314-optimisation-site/>
+**Site déployé :** <https://soane986.github.io/R314-optimisation-site/index.html#defis>
 **Fork (historique des commits) :** <https://github.com/Soane986/R314-optimisation-site>
 **Site de référence (avant) :** <https://nico3807.github.io/R314-optimisation-site/>
 
-> Mesures réalisées le 25 octobre 2026 entre 02 h 47 et 03 h 20. Les captures d'écran correspondantes sont rangées dans le dossier `audit/`.
+> Mesures réalisées le 25 octobre 2026 entre 02 h 47 et 03 h 20. Captures d'écran avant/après et fiches « code avant / code après » : `audit/audit-avant-apres.docx` (et les images seules dans `audit/`).
 
 ---
 
