@@ -184,17 +184,37 @@
 
   /* Les cases du calendrier apparaissent progressivement à l'approche du
      centre de l'écran. Les 7 lignes de la grille ont chacune leur opacité :
-     une seule lecture de géométrie, 7 variables CSS écrites. */
+     une seule lecture de géométrie, 7 variables CSS écrites. Chaque
+     changement relance la transition d'opacité des 371 cases : on ne
+     recalcule donc que si le calendrier est à moins d'un écran du viewport
+     (invisible pour le visiteur) et que si une valeur a changé. */
   var CAL_PAS = 14; // 11 px de case + 3 px d'espacement (voir .calendar)
+  var calProche = true;
+  var calValeurs = [];
   function fadeCalendar() {
     var host = document.getElementById('calendrier');
-    if (!host) return;
+    if (!host || !calProche) return;
     var top = host.getBoundingClientRect().top;
     var h = window.innerHeight;
     for (var r = 0; r < 7; r++) {
       var d = Math.abs(top + r * CAL_PAS - h / 2);
-      host.style.setProperty('--o' + r, Math.max(0.15, 1 - d / h));
+      // Arrondi au millième : en dessous, l'écart d'opacité est invisible.
+      var o = Math.round(Math.max(0.15, 1 - d / h) * 1000) / 1000;
+      if (o !== calValeurs[r]) {
+        calValeurs[r] = o;
+        host.style.setProperty('--o' + r, o);
+      }
     }
+  }
+
+  /* Suit la distance du calendrier au viewport, sans écouter le scroll. */
+  function watchCalendar() {
+    var host = document.getElementById('calendrier');
+    if (!host || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (entries) {
+      calProche = entries[entries.length - 1].isIntersecting;
+      if (calProche) fadeCalendar();
+    }, { rootMargin: '100% 0px' }).observe(host);
   }
 
   /* Regroupe les événements de scroll/resize à une exécution par image. */
@@ -226,6 +246,7 @@
     watchImages();
     observeCards();
     fadeCalendar();
+    watchCalendar();
     var champ = document.querySelector('#q');
     if (champ) champ.addEventListener('input', filterGallery);
   }
