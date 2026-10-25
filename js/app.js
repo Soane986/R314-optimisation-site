@@ -163,19 +163,6 @@
     }
   }
 
-  /* Aligne la hauteur des cartes sur la plus grande, pour garder une grille
-     régulière : toutes les lectures d'abord, puis toutes les écritures. */
-  function equalizeCards() {
-    var cards = qsa('.card');
-    var tallest = 0;
-    for (var i = 0; i < cards.length; i++) {
-      if (cards[i].offsetHeight > tallest) tallest = cards[i].offsetHeight;
-    }
-    for (var j = 0; j < cards.length; j++) {
-      cards[j].style.minHeight = tallest + 'px';
-    }
-  }
-
   /* Anime l'arrivée des cartes dans le viewport, sans écouter le scroll. */
   function observeCards() {
     var cards = qsa('.card');
@@ -237,7 +224,6 @@
     buildKeywordIndex();
     buildActivityCalendar();
     watchImages();
-    equalizeCards();
     observeCards();
     fadeCalendar();
     var champ = document.querySelector('#q');
@@ -248,9 +234,5 @@
   init();
 
   window.addEventListener('scroll', parImage(fadeCalendar), { passive: true });
-  window.addEventListener('resize', parImage(function () {
-    equalizeCards();
-    fadeCalendar();
-  }));
-  window.addEventListener('load', equalizeCards);
+  window.addEventListener('resize', parImage(fadeCalendar));
 })();
